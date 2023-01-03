@@ -118,7 +118,7 @@ The `func_incorrect_1` is responsible for the following warning.
 We see that compared to the `func_correct`, we now don't have an empty line before the first
 `:param:`.
 
-Why is the message so cryptic? Parameter descriptions has to form a a 
+Why is the message so cryptic? Parameter descriptions has to form a
 [a field list](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#field-lists). 
 Field lists are separated from the paragraphs with a blank line. Now this part:
 
@@ -194,7 +194,7 @@ Some more notes:
 - this effect does not occur if there is no ambiguity in referencing to the type. In our case, 
   if `A` wasn't available directly from `subpackage`, there would be no problem.
  
-### `function_incorrect_2`
+### `function_incorrect_3`
 
 #### Source code
 
@@ -223,7 +223,7 @@ def func_incorrect_3(arg: B) -> A:
 
 #### Generated ReST
 
-```ReST
+```rest
 .. py:function:: func_incorrect_3(arg: B) -> example.subpackage.submodule.A
 
    Return fresh A, without using arg.
@@ -239,7 +239,7 @@ def func_incorrect_3(arg: B) -> A:
 #### Explanation
 
 The `|something|` syntax is used to define 
-[substitutions](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext. html#substitution-definitions),
+[substitutions](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#substitution-definitions),
 unless it is enclosed in backticks. Hence, the parser actually wants to replace `|x|` with some 
 text, and errors out because the substitution is not defined.
 
